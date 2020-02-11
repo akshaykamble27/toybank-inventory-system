@@ -15,7 +15,7 @@ use Drupal\Core\Session\AccountInterface;
  * Provides a Welcome User block.
  *
  * @Block(
- *   id = "packed_request_custom_block",
+ *   id = "dispatched_request_custom_block",
  *   admin_label = @Translation("Dispatched Request Custom Block"),
  * )
  */
@@ -85,14 +85,7 @@ class DispatchedRequestBlock extends BlockBase {
                 '#rows'    => $rows,
         );
       }
-       if (!empty($variable)) {
-        return array($variable);
-      }
-      else {
-        return [
-          '#markup' => '<h3>Data not avalibale</h3>',
-        ];
-      }
+       return array($variable);
     }
   }
 

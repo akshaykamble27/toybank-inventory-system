@@ -81,7 +81,6 @@ class TbCustomReportCard extends FormBase {
                        WHERE pcn.field_play_center_inventory_name_target_id ={$pc_id}")->fetchAll();
 
       if (!empty($sql)) {
-        global $base_url;
         $final_result = [];
         $catg         = ['Pre-Primary', 'Primary', 'Secondary'];
         $sub_cat_q    = db_query("SELECT name FROM tban_taxonomy_term_field_data WHERE vid='category'")->fetchAll();
@@ -117,7 +116,7 @@ class TbCustomReportCard extends FormBase {
           $cluster_name = $codesql[0]->title;
         }
 
-        $content .= "<div class='report-card-page1'><div class = 'toy_logo2'><img src='$base_url/sites/default/files/tb-logo_0.png'></div>";
+        $content .= "<div class='report-card-page1'><div class = 'toy_logo2'><img src='https://toybank.wastaging.com/sites/default/files/tb-logo_0.png'></div>";
         $content .= "<div class ='toy_ft'><table class='tbl_inventory tbl_cl_yrs'>";
         $content .= "<tbody><tr><td colspan='3'>$name_code</td></tr><tr><td></td><td>$cluster_name</td><td> FY 2018-19 </td></tr></tbody></table></div><br>";
         $content .= "<div class='report-card-p-details'><div class='report-card-p-title'>Partner Details</div></div>";
@@ -188,7 +187,7 @@ class TbCustomReportCard extends FormBase {
         $content .= "<br><div class='date-printed-on'>Printed on: " . date("d/m/Y") . "</div></div>";
 
         // toyimage2.
-        $content .= "<div class = 'toy_logo_sec'><img src='$base_url/sites/default/files/tb-logo_0.png'></div>";
+        $content .= "<div class = 'toy_logo_sec'><img src='https://toybank.wastaging.com/sites/default/files/tb-logo_0.png'></div>";
         $content .= "<div class ='pc_cls_cat'><span class= 'pc_cls'></span><span class ='date_sec'>FY 2018-19</span></div>";
 
         // Kids Details.

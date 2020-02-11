@@ -64,7 +64,6 @@ class TbCustomRequestSheetReport extends FormBase {
    * Return request sheet data.
    */
   public function ajaxGetRequestSheet(array $form, FormStateInterface $form_state) {
-    global $base_url;
     $content = $content2 = $final_content = $games = '';
     $game    = [];
 
@@ -87,7 +86,7 @@ class TbCustomRequestSheetReport extends FormBase {
         $content  .= "<thead>
                       <tr>
                         <th colspan='3' rowspan='2'>
-                          <div class='rs-report-header-logo'><img src='$base_url/sites/default/files/tb-logo_0.png'></div>
+                          <div class='rs-report-header-logo'><img src='https://toybank.wastaging.com/sites/default/files/tb-logo_0.png'></div>
                           <div class='rs-report-header-title'>Toy List (Urban)</div>
                           <div class='rs-report-year'>FY- 2019-20</div>
                         </th></tr>
@@ -96,7 +95,7 @@ class TbCustomRequestSheetReport extends FormBase {
         $content  .= "</thead>";
         $content2 .= "<table class='tbl_inventory req-sheet-report'>";
         $content2 .= "<thead>
-                      <tr><th colspan='3' rowspan='3'><img src='$base_url/sites/default/files/tb-logo_0.png'></th><th colspan='6'>Toy Request Form</th>
+                      <tr><th colspan='3' rowspan='3'><img src='https://toybank.wastaging.com/sites/default/files/tb-logo_0.png'></th><th colspan='6'>Toy Request Form</th>
                       <th colspan ='6'>Requested By/On</th><th colspan='6'>Approved By/On</th><th colspan='3'>FY 2018-19</th></tr>";
         $content2 .= "<tr><th colspan ='6'>PP</th><th colspan ='6'>Pri</th><th colspan='6'>Sec</th><th rowspan='2'>Sum</th><th rowspan='2'>Packed (Date/Sign)</th><th rowspan='2'>Sent (Date/Sign)</th></tr>";
         $content2 .= "<tr><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th></tr>";

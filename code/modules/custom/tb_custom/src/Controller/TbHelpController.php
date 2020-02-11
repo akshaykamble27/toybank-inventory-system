@@ -64,10 +64,14 @@ class TbHelpController extends ControllerBase {
                      <div class="manual-header"><h3>' . $v->title . '</h3></div>
                      ' . $v->field_help_tab_content_value . '
                    </div>';
+
+        //~ $menus .= '<li nid="' . $k . '" class="help-menu-list"><a class="dropdown-toggle" href="#">' . $v . '</a></li>';
       }
     }
 
-    $content  = '';
+    $content = '';
+
+
     $content .= '<div class="help-section" >
                    <div class="vertical-tab " role="tabpanel">
                      <div class="nav nav-tabs left-help-menu" role="tablist">
@@ -75,6 +79,7 @@ class TbHelpController extends ControllerBase {
                         <h3><a href="/help-section"><i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i>  Need Help</a></h3>
                        </div>';
     $content .= $menus;
+
     $content .= '</div><div class="tab-content tabs righ-help-content">' . $panel . '</div></div>';
 
     return [

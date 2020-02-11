@@ -205,11 +205,9 @@ class ToybankCustomAddStock extends FormBase {
       }
 
       if (!empty($final_rev)) {
-        global $base_url;
-
         $content .= "<table class='tbl_inventory'>
                        <thead>
-                         <tr><th colspan='8' rowspan='2'><img src='$base_url/sites/default/files/tb-logo_0.png'></th><th colspan='12' rowspan='2'></th><th colspan='6'>FY 2019-20</th></tr>
+                         <tr><th colspan='8' rowspan='2'><img src='https://toybank.wastaging.com/sites/default/files/tb-logo_0.png'></th><th colspan='12' rowspan='2'></th><th colspan='6'>FY 2019-20</th></tr>
                          <tr><th colspan='20'>INVENTORY ADDITION</th></tr>
                          <tr><th rowspan='2'>DS</th><th rowspan='2'>WD</th><th colspan='6'>PP</th><th colspan='6'>PRI</th><th colspan='6'>SEC</th><th rowspan='2'>Details (Donor/Quantity)</th><th rowspan='2'>Added By (Date/Sign)</th></tr>
                          <tr><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th></tr>

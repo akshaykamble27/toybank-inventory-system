@@ -137,7 +137,6 @@ class TbCustomFullStockInvReport extends FormBase {
       }
 
       if (!empty($fssql)) {
-        global $base_url;
         $catg      = ['Pre-Primary', 'Primary', 'Secondary'];
         $sub_cat_q = db_query("SELECT name FROM tban_taxonomy_term_field_data WHERE vid = 'category'")->fetchAll();
 
@@ -161,7 +160,7 @@ class TbCustomFullStockInvReport extends FormBase {
 
         $content .= "<table class='tbl_inventory'>
                        <thead>
-                         <tr><th colspan='8' rowspan='2'><img src='$base_url/sites/default/files/tb-logo_0.png'></th><th colspan='12' rowspan='2'></th><th colspan='6'>FY 2019-20</th></tr>
+                         <tr><th colspan='8' rowspan='2'><img src='https://toybank.wastaging.com/sites/default/files/tb-logo_0.png'></th><th colspan='12' rowspan='2'></th><th colspan='6'>FY 2019-20</th></tr>
                          <tr><th colspan='20'>TOY INVENTORY AT WAREHOUSE</th></tr>
                          <tr><th rowspan='2'>DS</th><th rowspan='2'>WD</th><th colspan='6'>PP</th><th colspan='6'>PRI</th><th colspan='6'>SEC</th><th rowspan='2'>Details (Donor/Quantity)</th><th rowspan='2'>Added By (Date/Sign)</th></tr>
                          <tr><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th></tr>
@@ -183,7 +182,7 @@ class TbCustomFullStockInvReport extends FormBase {
         $content .= "<div class='report-print-wrapper'><button onclick='window.print();return false;'>Print</button></div>";
       }
       else {
-        $content .= "<h3>Data not available<h3>";
+        $content .= "Data not available";
       }
 
       return $content;

@@ -65,6 +65,7 @@ class ManualDataAdminBlock extends BlockBase {
                  </span>';
     $content .= '<div class="divider"></div>';
     $content .= '</div>';
+
     $content .= '<div class="tab-content tabs righ-help-content">';
 
     // Manage Users.

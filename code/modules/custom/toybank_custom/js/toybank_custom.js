@@ -2,13 +2,6 @@
  * @file
  */
 
-jQuery(document).ready(function () {
-  if (jQuery(".view-empty").length) {
-    if (jQuery(".feed-icons").length) {
-      jQuery(".feed-icons").remove();
-    }
-  }
-});
 
 jQuery("select[id^='edit-field-multiple-games-']").each(function () {
   // Code to hide content type dropdown in add more field collection.
@@ -139,7 +132,9 @@ jQuery(document).ajaxComplete(function () {
 (function ($, Drupal) {
   Drupal.behaviors.ThemeBehaviours = {
     attach: function (context, settings) {
-      if (jQuery(".view").hasClass("view-game-request-listing")) {
+
+      // Request List
+       if (jQuery(".view").hasClass("view-game-request-listing")) {
         // Request List
         var href = jQuery(".path-game-requests-listing a.feed-icon").attr('href');
         var res =  href.replace("requests.csv?", "request-list-export/");
@@ -165,6 +160,25 @@ jQuery(document).ajaxComplete(function () {
           jQuery("#edit-field-vendor-taxo").val("_none").trigger("change");
         }
       });
+
+      // help manual
+      //~ jQuery( ".help-menu-list" ).click(function() {
+        //~ var helpnid = jQuery(this).attr('nid');
+        //~ var helpcontent = jQuery("#help-content").html();
+        //~ if (helpnid) {
+          //~ jQuery.ajax({
+            //~ url: "/help-get-ajax/",
+            //~ type: "POST",
+            //~ data: {nid: helpnid},
+            //~ success: function (data) {
+              //~ if (data) {
+                  //~ jQuery("#content-hide").remove();
+                  //~ jQuery("#help-content").append(data);
+              //~ }
+            //~ }
+          //~ });
+        //~ }
+      //~ });
 
       $(".path-inventory-history .inv_his").click(function () {
         var nid_txt = jQuery(this).html();
@@ -292,108 +306,108 @@ jQuery(document).ajaxComplete(function () {
         }
       });
 
-      if (!jQuery(".view-empty").length) {
-        // Add csv export link beside exposed filter manage-users
-        jQuery(".path-manage-users .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-manage-users .feed-icons .csv-feed").html();
-        jQuery(".path-manage-users .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter kbi
-        jQuery(".path-kbi .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-kbi .feed-icons .csv-feed").html();
-        jQuery(".path-kbi .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter manage-users
+      jQuery(".path-manage-users .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-manage-users .feed-icons .csv-feed").html();
+      jQuery(".path-manage-users .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter partner
-        jQuery(".path-partner .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-partner .feed-icons .csv-feed").html();
-        jQuery(".path-partner .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter kbi
+      jQuery(".path-kbi .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-kbi .feed-icons .csv-feed").html();
+      jQuery(".path-kbi .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter cluster
-        jQuery(".path-cluster .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-cluster .feed-icons .csv-feed").html();
-        jQuery(".path-cluster .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter partner
+      jQuery(".path-partner .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-partner .feed-icons .csv-feed").html();
+      jQuery(".path-partner .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-kbi-category
-        jQuery(".path-kbi-category .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-kbi-category .feed-icons .csv-feed").html();
-        jQuery(".path-kbi-category .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-kids-background
-        jQuery(".path-kids-background .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-kids-background .feed-icons .csv-feed").html();
-        jQuery(".path-kids-background .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter cluster
+      jQuery(".path-cluster .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-cluster .feed-icons .csv-feed").html();
+      jQuery(".path-cluster .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-type-of-center
-        jQuery(".path-type-of-center .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-type-of-center .feed-icons .csv-feed").html();
-        jQuery(".path-type-of-center .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-kbi-category
+      jQuery(".path-kbi-category .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-kbi-category .feed-icons .csv-feed").html();
+      jQuery(".path-kbi-category .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-type-of
-        jQuery(".path-type-of .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-type-of .feed-icons .csv-feed").html();
-        jQuery(".path-type-of .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-kids-background
+      jQuery(".path-kids-background .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-kids-background .feed-icons .csv-feed").html();
+      jQuery(".path-kids-background .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-type-of-school
-        jQuery(".path-type-of-school .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-type-of-school .feed-icons .csv-feed").html();
-        jQuery(".path-type-of-school .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-type-of-center
+      jQuery(".path-type-of-center .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-type-of-center .feed-icons .csv-feed").html();
+      jQuery(".path-type-of-center .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-partner-type
-        jQuery(".path-partner-type .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-partner-type .feed-icons .csv-feed").html();
-        jQuery(".path-partner-type .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-type-of
+      jQuery(".path-type-of .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-type-of .feed-icons .csv-feed").html();
+      jQuery(".path-type-of .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-type-of-activity
-        jQuery(".path-type-of-activity .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-type-of-activity .feed-icons .csv-feed").html();
-        jQuery(".path-type-of-activity .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-type-of-school
+      jQuery(".path-type-of-school .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-type-of-school .feed-icons .csv-feed").html();
+      jQuery(".path-type-of-school .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-game-issue
-        jQuery(".path-game-issue-report .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-game-issue-report .feed-icons .csv-feed").html();
-        jQuery(".path-game-issue-report .view-filters .form-inline").not(".path-game-issue-report .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-partner-type
+      jQuery(".path-partner-type .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-partner-type .feed-icons .csv-feed").html();
+      jQuery(".path-partner-type .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-playcenter-issue-report
-        jQuery(".path-playcenter-issue-report .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-playcenter-issue-report .feed-icons .csv-feed").html();
-        jQuery(".path-playcenter-issue-report .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-type-of-activity
+      jQuery(".path-type-of-activity .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-type-of-activity .feed-icons .csv-feed").html();
+      jQuery(".path-type-of-activity .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-inventory-listing
-        jQuery(".path-inventory-listing .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-inventory-listing .feed-icons .csv-feed").html();
-        jQuery(".path-inventory-listing .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-game-issue
+      jQuery(".path-game-issue-report .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-game-issue-report .feed-icons .csv-feed").html();
+      jQuery(".path-game-issue-report .view-filters .form-inline").not(".path-game-issue-report .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-activity-listing
-        jQuery(".path-activity-listing .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-activity-listing .feed-icons .csv-feed").html();
-        jQuery(".path-activity-listing .view-filters .form-inline").not(".path-activity-listing .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-playcenter-issue-report
+      jQuery(".path-playcenter-issue-report .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-playcenter-issue-report .feed-icons .csv-feed").html();
+      jQuery(".path-playcenter-issue-report .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-verify-new-games
-        jQuery(".path-verify-new-games .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-verify-new-games .feed-icons .csv-feed").html();
-        jQuery(".path-verify-new-games .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-inventory-listing
+      jQuery(".path-inventory-listing .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-inventory-listing .feed-icons .csv-feed").html();
+      jQuery(".path-inventory-listing .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter path-source-pickup
-        jQuery(".path-source-pickup .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-source-pickup .feed-icons .csv-feed").html();
-        jQuery(".path-source-pickup .view-filters .form-inline").not(".path-source-pickup .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-activity-listing
+      jQuery(".path-activity-listing .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-activity-listing .feed-icons .csv-feed").html();
+      jQuery(".path-activity-listing .view-filters .form-inline").not(".path-activity-listing .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter play-center
-        jQuery(".path-playcenter .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-playcenter .feed-icons .csv-feed").html();
-        jQuery(".path-playcenter .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-verify-new-games
+      jQuery(".path-verify-new-games .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-verify-new-games .feed-icons .csv-feed").html();
+      jQuery(".path-verify-new-games .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter Activity listing
-        jQuery(".path-activity-listings .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-activity-listings .feed-icons .csv-feed").html();
-        jQuery(".path-activity-listings .view-filters .form-inline").not(".js-form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+      // Add csv export link beside exposed filter path-source-pickup
+      jQuery(".path-source-pickup .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-source-pickup .feed-icons .csv-feed").html();
+      jQuery(".path-source-pickup .view-filters .form-inline").not(".path-source-pickup .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
-        // Add csv export link beside exposed filter - Request List
-        jQuery(".path-game-requests-listing .feed-icons").addClass("custom-feed-icon");
-        jQuery(".path-game-requests-listing .view-filters .form-inline .custom-feed-icon").remove();
-        var csvExportLink = jQuery(".path-game-requests-listing .feed-icons .json-feed").html();
-        jQuery(".path-game-requests-listing .view-filters .form-inline").not(".path-game-requests-listing .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
-      }
+      // Add csv export link beside exposed filter play-center
+      jQuery(".path-playcenter .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-playcenter .feed-icons .csv-feed").html();
+      jQuery(".path-playcenter .view-filters .form-inline").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+
+      // Add csv export link beside exposed filter Activity listing
+      jQuery(".path-activity-listings .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-activity-listings .feed-icons .csv-feed").html();
+      jQuery(".path-activity-listings .view-filters .form-inline").not(".js-form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
+
+      // Add csv export link beside exposed filter - Request List
+      jQuery(".path-game-requests-listing .feed-icons").addClass("custom-feed-icon");
+      jQuery(".path-game-requests-listing .view-filters .form-inline .custom-feed-icon").remove();
+      var csvExportLink = jQuery(".path-game-requests-listing .feed-icons .json-feed").html();
+      jQuery(".path-game-requests-listing .view-filters .form-inline").not(".path-game-requests-listing .view-filters .form-inline.form-type-date").append("<div class='custom-feed-icon' style='float:right;'>" + csvExportLink + "</div>");
 
       // pending request details page - restrict packed qty > system qty
       jQuery(".path-pending-request-details .table tbody tr").each(function () {
@@ -462,6 +476,10 @@ function issueMark() {
       if (reportqty != expectedqty  && gameissue == 'none') {
         html += "<div class='error-issue-mgs'>Please select issue for " + gn + "</div>";
       }
+
+      //~ if (parseInt(reportqty) > parseInt(sysqty)) {
+        //~ html += "<div class='error-issue-mgs'>Reported quantity must be less than System quantity</div>";
+      //~ }
     }
     else {
       if (gameissue != 'none') {
@@ -764,6 +782,25 @@ jQuery(document).ready(function () {
   jQuery(".request-cat-details .Total").html(total);
 
 
+
+  //~ jQuery(".im_u.path-packed-request-details table tbody tr").not(".request-cat-details table tbody tr").each(function () {
+    //~ var x = jQuery(".im_u .request-cat-details table thead tr th:nth-child(" + i + ")").html();
+    //~ var category = jQuery(this).find(".views-field-field-category").html();
+    //~ var cat_sum  = 0;
+
+    //~ if (jQuery(this).find(".views-field-field-category").html().trim() == category) {
+      //~ cat_sum = jQuery(this).find('.views-field-field-packed-quantity').text();
+
+    //~ }
+    //~ console.log(category);
+
+  //~ });
+
+  //pending-req-details
+  //~ var total_qty = jQuery(".im_u.path-pending-request-details .tot-req-qty").html();
+  //~ var rem_qty = jQuery(".im_u.path-pending-request-details .total-rem-qty").html();
+  //~ jQuery(".im_u.path-pending-request-details .view-content #edit-actions").before("<div class='footer-req-detail'><div class='tqty-pen-detail'>" + total_qty + "</div><div class='tqty-rem-detail'><span>Total Remaining Quantity</span> : <span class='total-rem-qty'>" + rem_qty + "</span></div></div>" );
+
   //packed-req-details
   var total_qty = jQuery(".path-packed-request-details .tot-req-qty").html();
   var packed_qty = jQuery(".path-packed-request-details .to-packed-qty").html();
@@ -783,6 +820,27 @@ jQuery(document).ready(function () {
   var total_qty = jQuery(".path-closed-request-details .tot-req-qty").html();
   var delivered = jQuery(".path-closed-request-details .total-delivered-qty").html();
   //~ jQuery(".im_u.path-closed-request-details .view-content ").after("<div class='footer-req-detail'><div class='tqty-pen-detail'>" + total_qty + "</div><div class='tqty-rem-detail'><span>Total Delivered Quantity</span> : <span class='total-rem-qty'>" + delivered + "</span></div></div>" );
+
+
+  // Pending Request Details page.
+  //~ jQuery(".im_u .views-field-form-field-field-packed-quantity .form-item").append("<span class='pack-qty-edit-btn btn'>Edit</span>");
+  //~ jQuery(".views-field-form-field-field-req-game-quantity .form-item").append("<span class='req-qty-edit-btn btn'>Edit</span>");
+  //~ jQuery(".views-field-form-field-field-req-game-quantity input").prop('readonly', true);
+
+  //~ jQuery(".pack-qty-edit-btn").click(function () {
+    //~ jQuery(this).parent().find("input").prop('readonly', false);
+  //~ });
+
+  //~ jQuery(".req-qty-edit-btn").click(function () {
+    //~ jQuery(this).parent().find("input").prop('readonly', false);
+  //~ });
+
+  //~ jQuery(".path-pending-request-details .view-game-request-details .view-content tbody tr").each(function () {
+    //~ var qty = jQuery(this).find(".views-field-field-req-game-quantity").html().trim();
+    //~ jQuery(this).find(".views-field-form-field-field-packed-quantity input").val(qty);
+    //~ jQuery(this).find(".views-field-form-field-field-request-status select").val('ok');
+    //~ jQuery(this).find(".views-field-form-field-field-packed-quantity input").prop('readonly', true);
+  //~ });
 
 });
 
@@ -808,6 +866,7 @@ function check_selected_games_stats() {
 }
 
 function sticky_relocate() {
+  // Ref- https://toybank.wastaging.com/core/misc/tableheader.js?v=8.7.6
   var window_top = jQuery(window).scrollTop();
   var div_top = jQuery('#scroll-content').offset().top;
   var get_table_width = jQuery('.req-detail .view-content .table-responsive table').width();
@@ -829,4 +888,8 @@ jQuery(function() {
     sticky_relocate();
   }
 });
+
+
+
+
 

@@ -182,3 +182,11 @@ tb_custom.get_help_section:
     _title: 'Help Section'
   requirements:
     _permission: 'access content'
+
+#~ tb_custom.help_get_ajax:
+  #~ path: '/help-get-ajax'
+  #~ defaults:
+    #~ _controller: '\Drupal\tb_custom\Controller\TbHelpController::helpGetAjax'
+    #~ _title: 'Help Ajax'
+  #~ requirements:
+    #~ _permission: 'access content'

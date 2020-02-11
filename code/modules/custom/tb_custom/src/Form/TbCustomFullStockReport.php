@@ -80,7 +80,6 @@ class TbCustomFullStockReport extends FormBase {
     $result      = $final_result = [];
 
     if (!empty($fs_play_cen)) {
-      global $base_url;
       //~ $fs_date = strtotime($form_state->getValue('fs_date') . ' 23:59');
       $fssql   = db_query("SELECT sc.field_sub_catgeory_value as category, tx.name as subcategory, pcgn.field_pc_inv_game_name_target_id as game_id, pcn.field_play_center_inventory_name_target_id as playcenter_id, tqty.field_pc_total_inventory_value as total_qty FROM tban_node__field_pc_inv_game_name as pcgn
                            LEFT JOIN tban_node__field_play_center_inventory_name as pcn ON pcgn.entity_id = pcn.entity_id
@@ -120,7 +119,7 @@ class TbCustomFullStockReport extends FormBase {
 
       $content .= "<table class='tbl_inventory'>";
       $content .= "<thead>
-                     <tr><th colspan='8' rowspan='2'><img src='$base_url/sites/default/files/tb-logo_0.png'></th><th colspan='12' rowspan='2'></th><th colspan='6'>FY 2019-20</th></tr>
+                     <tr><th colspan='8' rowspan='2'><img src='https://toybank.wastaging.com/sites/default/files/tb-logo_0.png'></th><th colspan='12' rowspan='2'></th><th colspan='6'>FY 2019-20</th></tr>
                      <tr><th colspan='20'>TOY INVENTORY AT {$playc_name}</th></tr>
                      <tr><th rowspan='2'>DS</th><th rowspan='2'>WD</th><th colspan='6'>PP</th><th colspan='6'>PRI</th><th colspan='6'>SEC</th><th rowspan='2'>Details (Donor/Quantity)</th><th rowspan='2'>Added By (Date/Sign)</th></tr>";
       $content .= "<tr><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th><th>S</th><th>P</th><th>B</th><th>A</th><th>N</th><th>G</th></tr>";
